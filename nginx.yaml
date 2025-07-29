@@ -1,13 +1,14 @@
 - name: install and run nginx
   hosts: web
-  become: yes
+  become: yes # This is essential for installing packages and managing services
   tasks:
-  - name: install nginx
-    ansible.builtin.debug:
-      name: nginx
-      state: latest
-  - name: start nginx
-    ansible.builtin.debug:
-      name: nginx
-      state: started
-      enable: yes
+    - name: Ensure Nginx package is installed
+      ansible.builtin.package:
+        name: nginx
+        state: present # Use 'present' to ensure it's installed, 'latest' to upgrade if newer version is available
+
+    - name: Ensure Nginx service is running and enabled on boot
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes 
