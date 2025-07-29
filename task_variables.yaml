@@ -8,7 +8,7 @@
     - name: Print information
       vars:
        course_name: "Terraform"
-      instructor: "Michel"
-      duration: "19hrs"
+       instructor: "Michel"
+       duration: "19hrs"
       ansible.builtin.debug:
        msg: "Hi we are learning {{course_name}} from {{instructor}} Duration is {{duration}}"
