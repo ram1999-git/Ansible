@@ -1,6 +1,6 @@
-- name: ping the server
+- name: Check connectivity to web servers
   hosts: web
-  task:
-  - name: Ping the server
-    ansible.builtin.debug:
-    
+  tasks:
+    - name: Ping the server to verify Ansible connectivity
+      ansible.builtin.ping:
+      
