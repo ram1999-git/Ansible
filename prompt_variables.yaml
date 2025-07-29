@@ -1,18 +1,18 @@
 - name: variables
   hosts: localhost
-  vars_prompt:
-    - name: Course_name
+  vars_prompt: # Corrected from 'var_prompt'
+    - name: course_name # The name of the variable
       prompt: "Please enter the course name"
       private: False
 
-    - name: Instructor 
-      prompt: "Please enter the Instructor name"
+    - name: instructor # The name of the variable
+      prompt: "Please enter the instructor name" # Corrected typo "Instructure"
       private: False
-    
-    - name: Duration
+
+    - name: duration # The name of the variable
       prompt: "Please enter the time duration"
       private: False
   tasks:
     - name: Print information
       ansible.builtin.debug:
-       msg: "Hi we are learning {{course_name}} from {{Instructor}} Duration is {{Duration}}"
+        msg: "Hi we are learning {{ course_name }} from {{ instructor }}. Duration is {{ duration }}"
