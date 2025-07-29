@@ -1,15 +1,15 @@
 - name: variables
   hosts: localhost
   vars_prompt:
-    - course_name: Course_name
+    - name: Course_name
       prompt: "Please enter the course name"
       private: False
 
-    - instructor: Instructure name
+    - name: Instructure name
       prompt: "Please enter the Instructure name"
       private: False
     
-    - duration: Time duration
+    - name: Time duration
       prompt: "Please enter the time duration"
       private: False
   tasks:
