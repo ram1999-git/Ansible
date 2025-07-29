@@ -1,0 +1,17 @@
+- name: data_type
+  hosts: localhost
+  vars:
+    course: Devops with Aws
+    Tools:
+      - Ansible
+      - Terraform
+      - Docker
+    Experience:
+      Ansible: 2
+      Terraform: 3 
+      Docker: 1
+    Real_Projectt: True
+  tasks:
+    - name: Print course information
+      ansible.builtin.debug:
+        msg: "Course: {{ course }}, Tools: {{ Tools }}, Experience: {{ Experience }}, Real Project: {{ Real_Projectt }}"
