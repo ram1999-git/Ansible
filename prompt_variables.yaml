@@ -1,7 +1,7 @@
 - name: variables
   hosts: localhost
   vars_prompt:
-    - course_name: Course name
+    - course_name: Course_name
       prompt: "Please enter the course name"
       private: False
 
