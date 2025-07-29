@@ -1,15 +1,15 @@
 - name: variables
   hosts: localhost
-  vars_prompt: # Corrected from 'var_prompt'
-    - name: course_name # The name of the variable
+  vars_prompt:
+    - name: course_name 
       prompt: "Please enter the course name"
       private: False
 
-    - name: instructor # The name of the variable
-      prompt: "Please enter the instructor name" # Corrected typo "Instructure"
+    - name: instructor 
+      prompt: "Please enter the instructor name" 
       private: False
 
-    - name: duration # The name of the variable
+    - name: duration
       prompt: "Please enter the time duration"
       private: False
   tasks:
