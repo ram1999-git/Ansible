@@ -3,4 +3,7 @@
   tasks:
     - name: Ping the server to verify Ansible connectivity
       ansible.builtin.ping:
-      
+      register: ping_result # Register the output of the ping module
+    - name: Display ping result
+      ansible.builtin.debug:
+        var: ping_resul
