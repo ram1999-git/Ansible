@@ -5,14 +5,14 @@
       prompt: "Please enter the course name"
       private: False
 
-    - name: Instructure name
-      prompt: "Please enter the Instructure name"
+    - name: Instructor 
+      prompt: "Please enter the Instructor name"
       private: False
     
-    - name: Time duration
+    - name: Duration
       prompt: "Please enter the time duration"
       private: False
   tasks:
     - name: Print information
       ansible.builtin.debug:
-       msg: "Hi we are learning {{course_name}} from {{instructor}} Duration is {{duration}}"
+       msg: "Hi we are learning {{course_name}} from {{Instructor}} Duration is {{Duration}}"
