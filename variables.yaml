@@ -1,0 +1,6 @@
+- name: variables
+  hosts: localhost
+  tasks:
+    - name: Print information
+      ansible.builtin.debug:
+       msg: "Hi we are learning Devops from Ram Duration 15hrs"
