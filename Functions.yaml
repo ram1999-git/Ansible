@@ -45,14 +45,16 @@
 - name: Dict to list conversion
   hosts: localhost
   vars:
-    dict_list:
-      - name: Ram
-        designation: Developer
-        working_on: Power BI
+    dict_data:
+      name: Ram
+      designation: Developer
+      working_on: Power BI
   tasks:
     - name: Print the list from dictionary
       ansible.builtin.debug:
-        msg: "{{ dict_list | dict2items }}"
+        msg: "{{ dict_data | dict2items }}"
+
+
 
 - name: List to dict conversion
   hosts: localhost
@@ -67,4 +69,4 @@
   tasks:
     - name: Print the dictionary from list
       ansible.builtin.debug:
-        msg: "{{ list | items2dict }}"
+        msg: "{{ list | items2dict(key_name='key', value_name='value') }}"
