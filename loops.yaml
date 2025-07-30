@@ -12,24 +12,26 @@
 
 - name: Installing packages
   hosts: localhost
+  become: yes
   tasks:
     - name: installing Packages 
       ansible.builtin.debug:
         name: "{{ item }}"
         state: latest
       loop:
-        - mysql
+        - mysql-client
         - nginx
         - putfix
 
 - name: install and uninstall packages
   hosts: localhost
+  become: yes
   tasks:
     - name: Install mysql and rest uninstall
       ansible.builtin.debug:
         name: "{{ item }}"
         state: "{{ item.state }}"
       loop:
-       - { item: 'mysql' , state:'latest'}
+       - { item: 'mysql-client' , state:'latest'}
        - { item: 'nginx' , state:'absent'}
        - { item: 'putfix', state:'absent'}
