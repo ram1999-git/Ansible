@@ -1,0 +1,35 @@
+- name: loops
+  hosts: localhost
+  tasks:
+    - name: Printhe list of names
+      ansible.builtin.debug:
+        msg: "{{ items }}"
+      loop:
+        - linux
+        - ansible
+        - mysql
+
+
+- name: Installing packages
+  host: localhost
+  tasks:
+    - name: installing Packages 
+      ansible.builtin.debug:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - mysql
+        - nginx
+        - putfix
+
+- name: install and uninstall packages
+  hosts: localhost
+  tasks:
+    - name: Install mysql and rest uninstall
+      ansible.builtin.debug:
+        name: "{{ item }}"
+        state: "{{ item list }}"
+      loop:
+       - { item: 'mysql' , state:'latest'}
+       - { item: 'nginx' , state:'absent'}
+       - { item: 'putfix', state:'absent'}
