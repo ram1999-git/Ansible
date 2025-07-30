@@ -32,6 +32,6 @@
         name: "{{ item }}"
         state: "{{ item.state }}"
       loop:
-       - { item: 'mysql-client' , state:'latest'}
-       - { item: 'nginx' , state:'absent'}
-       - { item: 'putfix', state:'absent'}
+       - { item: 'mysql-client' , state: 'latest'}
+       - { item: 'nginx' , state: 'absent'}
+       - { item: 'putfix', state: 'absent'}
