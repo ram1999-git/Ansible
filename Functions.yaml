@@ -3,7 +3,7 @@
   tasks:
     - name: Printing Default
       ansible.builtin.debug:
-       msg: "Hello, Please fill the {{course | default( 'Ansible' )}}"
+       msg: "Hello, Please fill the {{ course | default( 'Ansible' )}}"
 
 - name: Upper case
   hosts: localhost
@@ -57,8 +57,8 @@
   hosts: localhost
   vars:
     list:
-      {'key':'name', 'Value':'Ram'}
-      {'key':'working for', 'Value':'RIS'}
+      {'key':'name', 'Value':'Ram'},
+      {'key':'working for', 'Value':'RIS'},
       {'key':'Working hours per day', 'Values':'8hrs'}
   tasks:
     - name: Print the details
