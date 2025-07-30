@@ -10,4 +10,4 @@
         - 'name': 'Mysql-client'
           'state': 'absent' 
         - 'name': 'nginx' 
-          'state': 'latest'
+          'state': 'ansent'
