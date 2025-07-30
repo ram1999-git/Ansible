@@ -1,10 +1,6 @@
 ---
 - name: Default filter
   hosts: localhost
-  vars_prompt:
-    - name: course
-      prompt: "Enter the course name"
-      private: no
   tasks:
     - name: Print default course
       ansible.builtin.debug:
