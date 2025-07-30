@@ -67,4 +67,4 @@
   tasks:
     - name: Print the dictionary from list
       ansible.builtin.debug:
-        msg: "{{ list | items2dict(key_name='key', value_name='value') }}"
+        msg: "{{ list | items2dict }}"
