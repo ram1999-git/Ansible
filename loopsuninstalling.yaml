@@ -1,0 +1,11 @@
+- name: unistalling Packages
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Uninstalling the given Packages
+      ansible.builtin.debug:
+        name: "{{ item.name }}"
+        state: "{{item.state}}"
+      loop:
+        - {{ 'name': 'Mysql-client', 'state': 'absent' }}"
+        - {{ 'name': 'nginx', 'state': 'latest'}}"
