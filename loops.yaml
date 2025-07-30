@@ -21,7 +21,8 @@
       loop:
         - mysql-client
         - nginx
-        - putfix
+        - postfix
+
 
 - name: install and uninstall packages
   hosts: localhost
@@ -29,9 +30,11 @@
   tasks:
     - name: Install mysql and rest uninstall
       ansible.builtin.debug:
-        name: "{{ item }}"
+        name: "{{ item.name }}"
         state: "{{ item.state }}"
       loop:
-       - { item: 'mysql-client' , state: 'latest'}
-       - { item: 'nginx' , state: 'absent'}
-       - { item: 'putfix', state: 'absent'}
+       - { name: 'mysql-client' , state: 'latest'}
+       - { name: 'nginx' , state: 'absent'}
+       - { name: 'postfix', state: 'absent'}
+
+
