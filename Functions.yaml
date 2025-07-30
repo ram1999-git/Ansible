@@ -51,7 +51,7 @@
   tasks:
     - name: Print the list 
       ansible.builtin.debug:
-       msg: "{{ dict_list | dict2list }}"
+       msg: "{{ dict_list | dict2items }}"
 
 - name: list to dict
   hosts: localhost
@@ -63,5 +63,5 @@
   tasks:
     - name: Print the details
       ansible.builtin.debug:
-        msg: "{{list|lst2dict}}"
+        msg: "{{list| items2dict }}"
 
