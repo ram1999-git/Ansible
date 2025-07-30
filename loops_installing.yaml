@@ -4,7 +4,7 @@
   tasks:
     - name: Installing the given Packages
       ansible.builtin.debug:
-        name: "{{ Item }}"
+        name: "{{ item }}"
         state: latest
       loop:
         - nginx
