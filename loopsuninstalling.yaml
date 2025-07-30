@@ -7,5 +7,7 @@
         name: "{{ item.name }}"
         state: "{{item.state}}"
       loop:
-        - {{ 'name': 'Mysql-client', 'state': 'absent' }}"
-        - {{ 'name': 'nginx', 'state': 'latest'}}"
+        - 'name': 'Mysql-client'
+          'state': 'absent' 
+        - 'name': 'nginx' 
+          'state': 'latest'
