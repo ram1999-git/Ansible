@@ -1,6 +1,6 @@
 - name: condition
   hosts: localhost
-  var_prompt:
+  vars_prompt: 
     - name: number
       prompt: "Enter a number"
       private: no
