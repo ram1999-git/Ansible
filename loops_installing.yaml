@@ -8,6 +8,7 @@
         state: present
       loop:
         - nginx
-        - mysql-client
-        - putfix
+        - mysql
+        - postfix
+
 
