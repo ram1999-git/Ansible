@@ -1,67 +1,74 @@
+---
 - name: Default filter
   hosts: localhost
+  vars_prompt:
+    - name: course
+      prompt: "Enter the course name"
+      private: no
   tasks:
-    - name: Printing Default
+    - name: Print default course
       ansible.builtin.debug:
-       msg: "Hello, Please fill the {{ course | default( 'Ansible' )}}"
+        msg: "Hello, please fill the {{ course | default('Ansible') }} course"
 
 - name: Upper case
   hosts: localhost
   vars:
     Greeting: "Helo i'm learning Ansible"
   tasks:
-    - name: Print the  cases as Upper case
+    - name: Print the message in uppercase
       ansible.builtin.debug:
-       msg: "{{ Greeting | upper }}"
+        msg: "{{ Greeting | upper }}"
 
 - name: Lower
   hosts: localhost
   vars:
-    Greething: "Helo i'm learning Ansible"
+    Greeting: "Helo i'm learning Ansible"
   tasks:
-    - name: Print the  cases as Lower size
+    - name: Print the message in lowercase
       ansible.builtin.debug:
-       msg: "{{ Greeting | lower }}"
+        msg: "{{ Greeting | lower }}"
 
 - name: Remove duplication
   hosts: localhost
   vars:
-    list=[1,5,5,5,5,6,2,2,3,9,9,9,9,1,4,5,6,6,5,7]
+    number_list: [1, 5, 5, 5, 5, 6, 2, 2, 3, 9, 9, 9, 9, 1, 4, 5, 6, 6, 5, 7]
   tasks:
-    - name: Print the list without duplication
+    - name: Print the list without duplicates
       ansible.builtin.debug:
-       msg: "{{ Greeting | uniques }}"
+        msg: "{{ number_list | unique }}"
 
 - name: Max and Min
   hosts: localhost
   vars:
-    age=[96,105,208,12,2,0.6]
+    age: [96, 105, 208, 12, 2, 0.6]
   tasks:
     - name: Print the max age and min age
       ansible.builtin.debug:
-       msg: "The max age is :{{ age | max }} and the Min age is {{ age | min}}"
+        msg: "The max age is: {{ age | max }} and the min age is: {{ age | min }}"
 
-- name: disctolist conversion
+- name: Dict to list conversion
   hosts: localhost
   vars:
-    dict_list: 
+    dict_list:
       - name: Ram
-        desination: Developer
-        working of : Power bi
+        designation: Developer
+        working_on: Power BI
   tasks:
-    - name: Print the list 
+    - name: Print the list from dictionary
       ansible.builtin.debug:
-       msg: "{{ dict_list | dict2items }}"
+        msg: "{{ dict_list | dict2items }}"
 
-- name: list to dict
+- name: List to dict conversion
   hosts: localhost
   vars:
     list:
-      {'key':'name', 'Value':'Ram'},
-      {'key':'working for', 'Value':'RIS'},
-      {'key':'Working hours per day', 'Values':'8hrs'}
+      - key: name
+        value: Ram
+      - key: working_for
+        value: RIS
+      - key: working_hours
+        value: 8hrs
   tasks:
-    - name: Print the details
+    - name: Print the dictionary from list
       ansible.builtin.debug:
-        msg: "{{list| items2dict }}"
-
+        msg: "{{ list | items2dict(key_name='key', value_name='value') }}"
