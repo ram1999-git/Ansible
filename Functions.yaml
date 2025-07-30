@@ -1,0 +1,67 @@
+- name: Default filter
+  hosts: localhost
+  tasks:
+    - name: Printing Default
+      ansible.builtin.debug:
+       msg: "Hello, Please fill the {{course | default( 'Ansible' )}}"
+
+- name: Upper
+  hosts: localhost
+  vars:
+    Greething: "Helo i'm learning Ansible"
+  tasks:
+    - name: Print the  cases as Upper size
+      ansible.builtin.debug:
+       msg: "{{ Greeting | upper }}"
+
+- name: Lower
+  hosts: localhost
+  vars:
+    Greething: "Helo i'm learning Ansible"
+  tasks:
+    - name: Print the  cases as Lower size
+      ansible.builtin.debug:
+       msg: "{{ Greeting | lower }}"
+
+- name: Remove duplication
+  hosts: localhost
+  vars:
+    list=[1,5,5,5,5,6,2,2,3,9,9,9,9,1,4,5,6,6,5,7]
+  tasks:
+    - name: Print the list without duplication
+      ansible.builtin.debug:
+       msg: "{{ Greeting | uniques }}"
+
+- name: Max and Min
+  hosts: localhost
+  vars:
+    age=[96,105,208,12,2,0.6]
+  tasks:
+    - name: Print the max age and min age
+      ansible.builtin.debug:
+       msg: "The max age is :{{ age | max }} and the Min age is {{ age | min}}"
+
+- name: disctolist conversion
+  hosts: localhost
+  vars:
+    dict_list: 
+      - name: Ram
+        desination: Developer
+        working of : Power bi
+  tasks:
+    - name: Print the list 
+      ansible.builtin.debug:
+       msg: "{{ dict_list | dict2list }}"
+
+- name: list to dict
+  hosts: localhost
+  vars:
+    list:
+      {'key':'name', 'Value':'Ram'}
+      {'key':'working for', 'Value':'RIS'}
+      {'key':'Working hours per day', 'Values':'8hrs'}
+  tasks:
+    - name: Print the details
+      ansible.builtin.debug:
+        msg: "{{list|lst2dict}}"
+
