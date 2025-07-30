@@ -1,7 +1,7 @@
 - name: loops
   hosts: localhost
   tasks:
-    - name: Printhe list of names
+    - name: Prin the list of names
       ansible.builtin.debug:
         msg: "{{ items }}"
       loop:
@@ -15,7 +15,7 @@
   tasks:
     - name: installing Packages 
       ansible.builtin.debug:
-        name: "{{ item }}"
+        name: "{{ items }}"
         state: latest
       loop:
         - mysql
@@ -27,8 +27,8 @@
   tasks:
     - name: Install mysql and rest uninstall
       ansible.builtin.debug:
-        name: "{{ item }}"
-        state: "{{ item list }}"
+        name: "{{ items }}"
+        state: "{{ items.state }}"
       loop:
        - { item: 'mysql' , state:'latest'}
        - { item: 'nginx' , state:'absent'}
