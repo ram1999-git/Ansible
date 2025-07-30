@@ -2,11 +2,13 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Installing the given Packages
+    - name: Install Packages
       ansible.builtin.debug:
         name: "{{ item }}"
-        state: latest
+        state: present
       loop:
         - nginx
         - mysql-client
         - putfix
+
+
